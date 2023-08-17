@@ -1,7 +1,9 @@
-import Error from 'components/Error';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getReviewInfo } from 'servises/Api';
+import Error from 'components/Error';
+import Loader from 'components/Loader';
+import { format } from 'date-fns';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -29,12 +31,17 @@ const Reviews = () => {
     fetchRewiews();
   }, [movieId]);
 
+  const showReviews =
+    reviewInfo !== null &&
+    Array.isArray(reviewInfo.results) &&
+    reviewInfo.results.length > 0;
+
   return (
     <div>
-      {isLoading && <loader />}
+      {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
       <h3>Reviews</h3>
-      {reviewInfo !== null && (
+      {showReviews ? (
         <ul>
           {reviewInfo.results.map(result => (
             <li key={result.id}>
@@ -42,10 +49,12 @@ const Reviews = () => {
                 <b>{result.author}</b>
               </p>
               <p>{result.content}</p>
-              <p>{result.updated_at}</p>
+              <p>{format(Date.parse(result.updated_at), 'dd MMMM yyyy')}</p>
             </li>
           ))}
         </ul>
+      ) : (
+        <p>No comments yet</p>
       )}
     </div>
   );

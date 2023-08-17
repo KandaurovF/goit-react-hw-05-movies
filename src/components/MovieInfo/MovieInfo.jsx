@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MovieInfoWrapper } from 'pages/MovieDetail/MovieDetails.styled';
 import { BASE_IMAGE_URL } from 'servises/Api';
+import notAvailable from '../../img/affiche_nondisponible.jpg';
+import { format } from 'date-fns';
 
 const MovieInfo = ({ movie }) => {
+  const posterUrl = movie.poster_path
+    ? `${BASE_IMAGE_URL}w300${movie.poster_path}`
+    : notAvailable;
+
   return (
     <MovieInfoWrapper>
       <h2>
-        {movie.original_title} ({movie.release_date})
+        {movie.original_title} ({format(Date.parse(movie.release_date), 'yyyy')}
+        )
       </h2>
-      <img
-        src={`${BASE_IMAGE_URL}w300${movie.poster_path}`}
-        alt={movie.original_title}
-      />
+      <img src={posterUrl} alt={movie.original_title} />
+
       <p>{movie.vote_average}</p>
       <p>
         <strong>Ovrerview</strong>
