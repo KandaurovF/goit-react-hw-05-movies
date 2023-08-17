@@ -64,3 +64,19 @@ export const getReviewInfo = async movieId => {
     throw new Error(error.response.data.message);
   }
 };
+
+export const getMovieByQuery = async searchQuery => {
+  try {
+    const response = await axios.get(`search/movie`, {
+      params: {
+        api_key: API_KEY,
+        language: 'en-US',
+        query: searchQuery,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message);
+  }
+};
