@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BASE_IMAGE_URL } from 'servises/Api';
 import { format } from 'date-fns';
 import notAvailable from '../../img/affiche_nondisponible.jpg';
+import { GridItem } from './TrendingMovieItem.styled';
 
 const TrendingMovieItem = ({ trendingMovie }) => {
   const posterUrl = trendingMovie.poster_path
@@ -11,7 +12,7 @@ const TrendingMovieItem = ({ trendingMovie }) => {
     : notAvailable;
 
   return (
-    <li>
+    <GridItem>
       <Link to={`/movies/${trendingMovie.id}`}>
         <img src={posterUrl} alt={trendingMovie.original_title} />
         <p>
@@ -19,7 +20,7 @@ const TrendingMovieItem = ({ trendingMovie }) => {
         </p>
       </Link>
       <p>{format(Date.parse(trendingMovie.release_date), 'dd MMMM yyyy')}</p>
-    </li>
+    </GridItem>
   );
 };
 

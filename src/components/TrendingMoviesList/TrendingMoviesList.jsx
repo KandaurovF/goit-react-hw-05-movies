@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TrendingMovieItem from 'components/TrendingMovieItem';
+import { GridContainer } from './TrendingMoviesList.styled';
 
 const TrendingMoviesList = ({ trendingMovies }) => {
   const showTrendingMovies =
     Array.isArray(trendingMovies) && trendingMovies.length > 0;
 
   return (
-    <ul>
+    <GridContainer>
       {showTrendingMovies &&
         trendingMovies.map(trendingMovie => (
           <TrendingMovieItem
@@ -15,7 +16,7 @@ const TrendingMoviesList = ({ trendingMovies }) => {
             trendingMovie={trendingMovie}
           />
         ))}
-    </ul>
+    </GridContainer>
   );
 };
 
