@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getTrandingMovies } from 'servises/Api';
 import Loader from 'components/Loader';
 import Error from 'components/Error';
-import TrendingMoviesList from 'components/TrendingMoviesList';
+import MoviesList from 'components/MoviesList';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +16,7 @@ const Home = () => {
 
         const trendingMovies = await getTrandingMovies();
 
-        setTrendingMovies(trendingMovies);
+        setTrendingMovies(trendingMovies.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -32,7 +32,7 @@ const Home = () => {
       <h1>Trending today</h1>
       {error !== null && <Error error={error} />}
       {isLoading && <Loader />}
-      <TrendingMoviesList trendingMovies={trendingMovies} />
+      <MoviesList movies={trendingMovies} />
     </main>
   );
 };

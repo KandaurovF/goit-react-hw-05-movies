@@ -14,7 +14,7 @@ export const getTrandingMovies = async () => {
       },
     });
 
-    return response.data.results;
+    return response.data;
   } catch (error) {
     throw new Error(error.response.data.message);
   }

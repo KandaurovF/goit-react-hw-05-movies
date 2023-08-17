@@ -1,15 +1,11 @@
-import Error from 'components/Error';
-import Loader from 'components/Loader';
-import TrendingMoviesList from 'components/TrendingMoviesList';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { getMovieByQuery } from 'servises/Api';
-// import { getMovieByQuery } from 'servises/Api';
+import MoviesList from 'components/MoviesList';
+import Loader from 'components/Loader';
+import Error from 'components/Error';
 
 const SearchMovie = () => {
-  // const searchQuery = 'batman';
-  // const fetchMovieByQuery = getMovieByQuery(searchQuery);
-  // console.log('fetchMovieByQuery', fetchMovieByQuery);
   const [searchMovie, setSearchMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -24,7 +20,7 @@ const SearchMovie = () => {
       try {
         setIsLoading(true);
         const response = await getMovieByQuery(queryString);
-        setSearchMovie(response);
+        setSearchMovie(response.results);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -59,7 +55,7 @@ const SearchMovie = () => {
 
       {error !== null && <Error error={error} />}
       {isLoading && <Loader />}
-      <TrendingMoviesList trendingMovies={searchMovie} />
+      <MoviesList movies={searchMovie} />
     </div>
   );
 };
