@@ -25,7 +25,12 @@ const MovieInfo = ({ movie }) => {
       <Wrapper>
         <img src={posterUrl} alt={movie.original_title} />
         <div>
-          <p>{movie.vote_average}</p>
+          <p>
+            <b>Rating: {movie.vote_average}</b>
+          </p>
+          <p>
+            <i>{movie.tagline}</i>
+          </p>
           <p>
             <strong>Overview</strong>
           </p>
@@ -38,6 +43,11 @@ const MovieInfo = ({ movie }) => {
               <li key={genre.id}>{genre.name}</li>
             ))}
           </ul>
+          <p>
+            Relise date:{' '}
+            {format(Date.parse(movie.release_date), 'dd MMMM yyyy')}
+          </p>
+          <p>Duration: {movie.runtime} min</p>
         </div>
       </Wrapper>
     </MovieInfoWrapper>
@@ -48,9 +58,11 @@ MovieInfo.propTypes = {
   movie: PropTypes.shape({
     original_title: PropTypes.string.isRequired,
     release_date: PropTypes.string.isRequired,
+    tagline: PropTypes.string,
     poster_path: PropTypes.string.isRequired,
     backdrop_path: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
+    runtime: PropTypes.number,
     overview: PropTypes.string.isRequired,
     genres: PropTypes.arrayOf(
       PropTypes.shape({

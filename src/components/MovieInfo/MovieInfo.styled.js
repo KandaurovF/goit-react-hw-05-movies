@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 
   img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
 
     @media (max-width: 767px) {
       margin: 0 auto;
