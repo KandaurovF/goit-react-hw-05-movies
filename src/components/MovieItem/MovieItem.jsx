@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BASE_IMAGE_URL } from 'servises/Api';
 import { format } from 'date-fns';
 import notAvailable from '../../img/affiche_nondisponible.jpg';
@@ -15,9 +15,15 @@ const MovieItem = ({ movie }) => {
     <p>{format(Date.parse(movie.release_date), 'dd MMMM yyyy')}</p>
   ) : null;
 
+  const location = useLocation();
+
   return (
     <GridItem>
-      <Link to={`/movies/${movie.id}`}>
+      <Link
+        key={movie.id}
+        state={{ from: location }}
+        to={`/movies/${movie.id}`}
+      >
         <img src={posterUrl} alt={movie.original_title} />
         <p>
           <strong>{movie.original_title}</strong>

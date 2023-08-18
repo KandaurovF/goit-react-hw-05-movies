@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'servises/Api';
 import Loader from 'components/Loader';
 import Error from 'components/Error';
@@ -11,6 +11,8 @@ const MovieDetail = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     const fetchMovie = async () => {
@@ -35,8 +37,8 @@ const MovieDetail = () => {
   return (
     <main>
       {isLoading && <Loader />}
-
       {error !== null && <Error error={error} />}
+      <Link to={backLinkHref.current}>Go back</Link>
       {movie !== null && <MovieInfo movie={movie} />}
       <AdditionalInfo />
     </main>

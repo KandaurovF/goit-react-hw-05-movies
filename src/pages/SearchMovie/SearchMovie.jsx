@@ -47,6 +47,7 @@ const SearchMovie = () => {
         <input
           type="text"
           name="searchValue"
+          autoComplete="off"
           required
           placeholder="Enter movie title"
         />

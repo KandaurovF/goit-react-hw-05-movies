@@ -3,6 +3,7 @@ import { Container, Header, StyledNavLink } from './App.styled';
 import Home from 'pages/Home';
 import MovieDetail from 'pages/MovieDetail';
 import SearchMovie from 'pages/SearchMovie/SearchMovie';
+import NotFound from 'pages/NotFound';
 
 export const App = () => {
   return (
@@ -18,7 +19,7 @@ export const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<SearchMovie />} />
         <Route path="/movies/:movieId/*" element={<MovieDetail />} />
-        <Route path="*" />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Container>
   );
