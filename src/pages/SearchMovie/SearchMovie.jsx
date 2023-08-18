@@ -42,7 +42,11 @@ const SearchMovie = () => {
 
   return (
     <div>
-      <h2>SearchMovie</h2>
+      <h2>Search movie</h2>
+      <h3>
+        Welcome. Millions of movies, TV shows and people to discover. Explore
+        now.
+      </h3>
       <form onSubmit={hendleSubmit}>
         <input
           type="text"
