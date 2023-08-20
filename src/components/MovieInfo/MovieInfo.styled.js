@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const MovieInfoWrapper = styled.div`
   border-bottom: 1px solid #000000;
+  padding: 20px;
 
   @media (min-width: 768px) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
