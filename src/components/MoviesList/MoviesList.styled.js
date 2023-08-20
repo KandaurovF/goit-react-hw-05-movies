@@ -6,5 +6,5 @@ export const GridContainer = styled.ul`
   gap: 20px;
   margin-top: 20px;
   list-style: none;
-  padding: 0;
+  padding: 0 40px;
 `;

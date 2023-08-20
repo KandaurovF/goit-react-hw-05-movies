@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { BASE_IMAGE_URL } from 'servises/Api';
 import { format } from 'date-fns';
 import notAvailable from '../../img/affiche_nondisponible.jpg';
-import { GridItem } from './MovieItem.styled';
+import { GridItem, StyledLink } from './MovieItem.styled';
 
 const MovieItem = ({ movie }) => {
   const posterUrl = movie.poster_path
@@ -19,7 +19,7 @@ const MovieItem = ({ movie }) => {
 
   return (
     <GridItem>
-      <Link
+      <StyledLink
         key={movie.id}
         state={{ from: location }}
         to={`/movies/${movie.id}`}
@@ -28,9 +28,8 @@ const MovieItem = ({ movie }) => {
         <p>
           <strong>{movie.original_title}</strong>
         </p>
-      </Link>
+      </StyledLink>
       {releaseDate}
-      {/* <p>{format(Date.parse(movie.release_date), 'dd MMMM yyyy')}</p> */}
     </GridItem>
   );
 };

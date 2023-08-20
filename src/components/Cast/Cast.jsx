@@ -5,7 +5,13 @@ import Error from 'components/Error';
 import Loader from 'components/Loader';
 import defaultFemaleImage from '../../img/default_female.png';
 import defaultMaleImage from '../../img/default_male.png';
-import { GridContainer, GridItem } from './Cast.styled';
+import {
+  ActorImage,
+  ActorInfo,
+  CastWrapper,
+  GridContainer,
+  GridItem,
+} from './Cast.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -38,7 +44,7 @@ const Cast = () => {
       {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
       {castInfo !== null && (
-        <div>
+        <CastWrapper>
           <h3>Cast</h3>
           <GridContainer>
             {castInfo.cast.map(actor => {
@@ -50,16 +56,20 @@ const Cast = () => {
 
               return (
                 <GridItem key={actor.id}>
-                  <img src={actorAvatar} alt="actor" />
-                  <p>
-                    <b>{actor.name}</b>
-                  </p>
-                  <p>Caracter: {actor.character}</p>
+                  <ActorImage>
+                    <img src={actorAvatar} alt="actor" />
+                  </ActorImage>
+                  <ActorInfo>
+                    <p>
+                      <b>{actor.name}</b>
+                    </p>
+                    <p>Caracter: {actor.character}</p>
+                  </ActorInfo>
                 </GridItem>
               );
             })}
           </GridContainer>
-        </div>
+        </CastWrapper>
       )}
     </>
   );

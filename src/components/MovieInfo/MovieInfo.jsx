@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 
 import { Wrapper } from './MovieInfo.styled';
 import { MovieInfoWrapper } from './MovieInfo.styled';
+import { isValid } from 'date-fns/esm';
 
 const MovieInfo = ({ movie }) => {
   const posterUrl = movie.poster_path
@@ -16,11 +17,20 @@ const MovieInfo = ({ movie }) => {
     ? `${BASE_IMAGE_URL}w1280${movie.backdrop_path}`
     : null;
 
+  const releaseDate = movie.release_date;
+  const parsedReleaseDate = Date.parse(releaseDate);
+
+  const releaseYear = isValid(parsedReleaseDate)
+    ? format(parsedReleaseDate, 'yyyy')
+    : 'N/A';
+  const release = isValid(parsedReleaseDate)
+    ? format(parsedReleaseDate, 'dd MMMM yyyy')
+    : 'N/A';
+
   return (
     <MovieInfoWrapper backdropUrl={backdropUrl}>
       <h2>
-        {movie.original_title} ({format(Date.parse(movie.release_date), 'yyyy')}
-        )
+        {movie.original_title} ({releaseYear})
       </h2>
       <Wrapper>
         <img src={posterUrl} alt={movie.original_title} />
@@ -44,8 +54,8 @@ const MovieInfo = ({ movie }) => {
             ))}
           </ul>
           <p>
-            Relise date:{' '}
-            {format(Date.parse(movie.release_date), 'dd MMMM yyyy')}
+            Relise date:
+            {release}
           </p>
           <p>Duration: {movie.runtime} min</p>
         </div>
@@ -59,8 +69,8 @@ MovieInfo.propTypes = {
     original_title: PropTypes.string.isRequired,
     release_date: PropTypes.string.isRequired,
     tagline: PropTypes.string,
-    poster_path: PropTypes.string.isRequired,
-    backdrop_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
+    backdrop_path: PropTypes.string,
     vote_average: PropTypes.number.isRequired,
     runtime: PropTypes.number,
     overview: PropTypes.string.isRequired,

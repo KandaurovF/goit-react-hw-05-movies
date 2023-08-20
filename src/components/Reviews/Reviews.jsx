@@ -4,6 +4,7 @@ import { getReviewInfo } from 'servises/Api';
 import Error from 'components/Error';
 import Loader from 'components/Loader';
 import { format } from 'date-fns';
+import { ReviewWrapper } from './Review.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -37,7 +38,7 @@ const Reviews = () => {
     reviewInfo.results.length > 0;
 
   return (
-    <div>
+    <ReviewWrapper>
       {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
       <h3>Reviews</h3>
@@ -54,9 +55,9 @@ const Reviews = () => {
           ))}
         </ul>
       ) : (
-        <p>No comments yet</p>
+        <p>We don`t have any reviews for this movie...</p>
       )}
-    </div>
+    </ReviewWrapper>
   );
 };
 

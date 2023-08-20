@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'servises/Api';
 import Loader from 'components/Loader';
 import Error from 'components/Error';
 import MovieInfo from 'components/MovieInfo';
 import AdditionalInfo from 'components/AdditionalInfo';
+import Button from 'components/Button';
+import { StyledLink } from './MovieDetail.styled';
 
 const MovieDetail = () => {
   const { movieId } = useParams();
@@ -38,7 +40,9 @@ const MovieDetail = () => {
     <main>
       {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
-      <Link to={backLinkHref.current}>Go back</Link>
+      <StyledLink to={backLinkHref.current}>
+        <Button>Go back</Button>
+      </StyledLink>
       {movie !== null && <MovieInfo movie={movie} />}
       <AdditionalInfo />
     </main>

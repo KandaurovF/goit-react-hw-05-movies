@@ -1,22 +1,32 @@
 import React from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Cast from 'components/Cast';
 import Reviews from 'components/Reviews';
+import Button from 'components/Button';
+import {
+  AdditionalInfoWrapper,
+  LinksWrapper,
+  StyledLink,
+} from './AdditionalInfo.styled';
 
 const AdditionalInfo = () => {
   return (
     <>
-      <div>
+      <AdditionalInfoWrapper>
         <h2> Additional information</h2>
-        <ul>
+        <LinksWrapper>
           <li>
-            <Link to="cast">Cast</Link>
+            <StyledLink to="cast">
+              <Button>Cast</Button>
+            </StyledLink>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <StyledLink to="reviews">
+              <Button>Reviews</Button>
+            </StyledLink>
           </li>
-        </ul>
-      </div>
+        </LinksWrapper>
+      </AdditionalInfoWrapper>
       <Routes>
         <Route path="cast" element={<Cast />} />
         <Route path="reviews" element={<Reviews />} />

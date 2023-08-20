@@ -3,6 +3,7 @@ import { getTrandingMovies } from 'servises/Api';
 import Loader from 'components/Loader';
 import Error from 'components/Error';
 import MoviesList from 'components/MoviesList';
+import { Heading } from './Home.styled';
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -29,7 +30,7 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Trending today</h1>
+      <Heading>Trending today</Heading>
       {error !== null && <Error error={error} />}
       {isLoading && <Loader />}
       <MoviesList movies={trendingMovies} />
