@@ -41,7 +41,7 @@ const MovieDetail = () => {
       {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
       <StyledLink to={backLinkHref.current}>
-        <Button>Go back</Button>
+        <Button type="button">Go back</Button>
       </StyledLink>
       {movie !== null && <MovieInfo movie={movie} />}
       <AdditionalInfo />

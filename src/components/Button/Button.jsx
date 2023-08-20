@@ -1,7 +1,7 @@
 import { ButtonStyled } from './Button.styled';
 
 function Button({ children }) {
-  return <ButtonStyled type="button">{children}</ButtonStyled>;
+  return <ButtonStyled>{children}</ButtonStyled>;
 }
 
 export default Button;

@@ -17,12 +17,12 @@ const AdditionalInfo = () => {
         <LinksWrapper>
           <li>
             <StyledLink to="cast">
-              <Button>Cast</Button>
+              <Button type="button">Cast</Button>
             </StyledLink>
           </li>
           <li>
             <StyledLink to="reviews">
-              <Button>Reviews</Button>
+              <Button type="button">Reviews</Button>
             </StyledLink>
           </li>
         </LinksWrapper>
