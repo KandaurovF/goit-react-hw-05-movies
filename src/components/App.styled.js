@@ -22,13 +22,14 @@ export const Header = styled.header`
 
 export const Logo = styled.h3`
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
   margin: 0;
 `;
 
 export const SecondLogoColor = styled.span`
   color: #ff0000;
+  font-weight: 700;
 `;
 
 export const StyledNavLink = styled(NavLink)`
