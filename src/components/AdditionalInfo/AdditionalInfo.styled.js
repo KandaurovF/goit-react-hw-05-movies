@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const AdditionalInfoWrapper = styled.div`
   padding: 0 20px;
+  color: white;
 `;
 
 export const LinksWrapper = styled.ul`

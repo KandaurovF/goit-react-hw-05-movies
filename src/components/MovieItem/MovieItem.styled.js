@@ -11,6 +11,10 @@ export const GridItem = styled.li`
     max-width: 100%;
     height: auto;
   }
+
+  p {
+    color: white;
+  }
 `;
 
 export const StyledLink = styled(Link)`

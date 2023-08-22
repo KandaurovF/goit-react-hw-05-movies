@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CastWrapper = styled.div`
   padding: 0 20px;
+  color: white;
 `;
 
 export const GridContainer = styled.ul`

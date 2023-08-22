@@ -6,11 +6,11 @@ export const PageWrapper = styled.main`
 `;
 
 export const SearchbarWrapper = styled.div`
-  background-color: gray;
+  /* background-color: gray;
   background-image: url('${background}');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: cover; */
   padding: 40px 20px;
 
   h3 {
