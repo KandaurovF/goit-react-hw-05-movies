@@ -4,8 +4,8 @@ import styled from 'styled-components';
 export const GridItem = styled.li`
   text-align: center;
   border-radius: 5px;
-  border: 1px solid #000000;
-  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+  box-shadow: 0 0 10px 0 rgba(255, 215, 0, 0.3);
 
   img {
     max-width: 100%;

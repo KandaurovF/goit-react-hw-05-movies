@@ -1,16 +1,17 @@
 import styled from 'styled-components';
-import background from '../../img/vecteezy_abstract.jpg';
+// import background from '../../img/vecteezy_abstract.jpg';
+import background from '../../img/wallpaperbetter.com_2560x1440 (1).jpg';
 
 export const PageWrapper = styled.main`
   padding-top: 0;
+  background-color: gray;
+  background-image: url('${background}');
+
+  background-position: center;
+  background-size: auto;
 `;
 
 export const SearchbarWrapper = styled.div`
-  /* background-color: gray;
-  background-image: url('${background}');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
   padding: 40px 20px;
 
   h3 {

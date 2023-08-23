@@ -6,7 +6,7 @@ import Error from 'components/Error';
 import MovieInfo from 'components/MovieInfo';
 import AdditionalInfo from 'components/AdditionalInfo';
 import Button from 'components/Button';
-import { StyledLink } from './MovieDetail.styled';
+import { StyledLink, Wrapper } from './MovieDetail.styled';
 
 const MovieDetail = () => {
   const { movieId } = useParams();
@@ -37,7 +37,7 @@ const MovieDetail = () => {
   }, [movieId]);
 
   return (
-    <main>
+    <Wrapper>
       {isLoading && <Loader />}
       {error !== null && <Error error={error} />}
       <StyledLink to={backLinkHref.current}>
@@ -45,7 +45,7 @@ const MovieDetail = () => {
       </StyledLink>
       {movie !== null && <MovieInfo movie={movie} />}
       <AdditionalInfo />
-    </main>
+    </Wrapper>
   );
 };
 

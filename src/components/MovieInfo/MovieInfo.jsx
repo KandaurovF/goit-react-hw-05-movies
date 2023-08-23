@@ -4,8 +4,8 @@ import { BASE_IMAGE_URL } from 'servises/Api';
 import notAvailable from '../../img/affiche_nondisponible.jpg';
 import { format } from 'date-fns';
 
-import { Wrapper } from './MovieInfo.styled';
 import { MovieInfoWrapper } from './MovieInfo.styled';
+import { Wrapper } from './MovieInfo.styled';
 import { isValid } from 'date-fns/esm';
 
 const MovieInfo = ({ movie }) => {
